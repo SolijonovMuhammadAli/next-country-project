@@ -1,20 +1,30 @@
 import Head from "next/head";
 import styles from "./Layout.module.css";
 import Link from "next/Link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsLightbulb, BsLightbulbFill } from "react-icons/bs";
 
 const Layout = ({ children, title = "World Ranks" }) => {
   const [theme, setTheme] = useState("light");
 
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.getItem("theme")
+    );
+    setTheme(localStorage.getItem("theme"));
+  }, []);
   const switcherTheme = () => {
     if (theme === "light") {
-      setTheme("dark");
-      document.documentElement.setAttribute("data-theme", "dark");
+      saveTheme("dark");
     } else {
-      setTheme("light");
-      document.documentElement.setAttribute("data-theme", "light");
+      saveTheme("light");
     }
+  };
+  const saveTheme = (theme) => {
+    setTheme(theme);
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
   };
 
   return (
