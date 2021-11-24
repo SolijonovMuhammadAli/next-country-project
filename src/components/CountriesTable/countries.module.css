@@ -1,0 +1,88 @@
+.heading {
+  display: flex;
+}
+.heading button {
+  border: none;
+  background: transparent;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heading button:first-child {
+  justify-content: start;
+}
+.heading button > div {
+  padding-right: 5px;
+}
+.heading_name,
+.heading_population,
+.heading_gini,
+.heading_area {
+  flex: 4;
+  padding: 20px;
+  color: var(--text-color-secondary);
+  font-weight: 500;
+}
+.heading_name {
+  text-align: left;
+}
+.upImage {
+  transform: rotate(180deg);
+}
+.row {
+  display: flex;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--background-color-light);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: var(--box-shadow);
+  transition: all ease-in-out 0.2s;
+}
+.row:hover {
+  transform: translateY(-4px);
+}
+.name {
+  flex: 4;
+  text-align: left;
+  color: var(--text-color);
+}
+.population {
+  flex: 4;
+  color: var(--text-color);
+}
+.area {
+  flex: 4;
+  color: var(--text-color);
+}
+.gini {
+  flex: 4;
+  color: var(--text-color);
+}
+.flag {
+  flex: 1;
+  margin-right: 16px;
+}
+.flag img {
+  width: 100%;
+  border-radius: 2px;
+}
+.flag_heading {
+  flex: 1;
+}
+
+@media screen and (max-width: 720px) {
+  .area,
+  .gini {
+    display: none;
+  }
+  .heading button:last-child,
+  .heading button:nth-child(3) {
+    display: none;
+  }
+  .flag {
+    flex: 1;
+    margin-right: 16px;
+  }
+}
